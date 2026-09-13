@@ -1,0 +1,38 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: ms-andesstay-reservations
+  datasource:
+    url: jdbc:h2:mem:reservations;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    cl.andesstay: INFO
+    org.hibernate.SQL: WARN

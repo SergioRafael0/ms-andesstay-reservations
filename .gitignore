@@ -1,0 +1,28 @@
+# Build
+target/
+*.class
+*.jar
+!target/ms-andesstay-reservations.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# H2 local data
+*.db
+*.mv.db
+
+# Env
+.env
