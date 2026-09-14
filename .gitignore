@@ -2,7 +2,6 @@
 target/
 *.class
 *.jar
-!target/ms-andesstay-reservations.jar
 
 # IDE
 .idea/
