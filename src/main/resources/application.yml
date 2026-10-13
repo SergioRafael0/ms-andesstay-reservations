@@ -7,10 +7,16 @@ spring:
   application:
     name: ms-andesstay-reservations
   datasource:
-    url: jdbc:h2:mem:reservations;DB_CLOSE_DELAY=-1
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: ${ORACLE_JDBC_URL:jdbc:oracle:thin:@//localhost:1521/XEPDB1}
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: ${ORACLE_USER:andesstay}
+    password: ${ORACLE_PASSWORD:}
+  rabbitmq:
+    # Clúster de 2 nodos: se indican ambos endpoints para conmutación de fallos
+    addresses: ${RABBITMQ_ADDRESSES:localhost:5672,localhost:5673}
+    username: ${RABBITMQ_USER:andesstay}
+    password: ${RABBITMQ_PASSWORD:andesstay-dev-pass}
+    connection-timeout: 5000
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,10 +24,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
 
 management:
   endpoints:
